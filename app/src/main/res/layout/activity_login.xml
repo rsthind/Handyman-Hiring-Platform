@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:text="Not have account? Register"
         android:textAlignment="center"
-        android:layout_below="@+id/registerBtn"
+        android:layout_below="@+id/loginBtn"
         android:layout_marginTop="30dp"
         android:textColor="@color/colorBlack"/>
 
