@@ -12,6 +12,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
     //views
     EditText email, pass;
     Button registerBtn;
+    TextView haveAccount;
 
     ProgressDialog progressDialog;
 
@@ -47,6 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         pass = findViewById(R.id.password);
         registerBtn = findViewById(R.id.registerBtn);
+        haveAccount = findViewById(R.id.have_account);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -68,6 +71,13 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     registerUser(emailS, passS);
                 }
+            }
+        });
+        //handle login textview click listener
+        haveAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
 
@@ -102,6 +112,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     @Override
